@@ -128,6 +128,7 @@ impl CosmicEditor {
                 cursor.line = editor.buffer_mut().lines.len() - 1;
                 cursor.index = editor.buffer_mut().lines[cursor.line].text().len();
                 editor.set_cursor(cursor);
+                editor.set_select_opt(None);
             }
             CosmicText::MultiStyle(lines) => {
                 for line in lines {

@@ -243,6 +243,10 @@ pub(crate) fn input_kb(
     _channel: Option<Res<WasmPasteAsyncChannel>>,
 ) {
     let Some(active_editor_entity) = active_editor.0 else {
+        // Clear char input if we don't have a focus.
+        // Else we'll end up inputting all chars entered when not focused into the next focused element.
+        char_evr.clear();
+
         return;
     };
 
